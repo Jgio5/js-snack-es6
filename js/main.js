@@ -37,6 +37,13 @@ for (let i = 0; i < bicycle.length; i++) {
     }
 }
 
+//Lezione
+// bicycle.forEach((cycle) => { <!-- cycle = nome che diamo al nostro elemento -->
+//     if (cycle.weigth < cycleLight.weigth) {
+//         bicycleLight = bicycle;
+//     }
+// });
+
 console.log(`La bici più leggera è ${bicycleLight.name}, che pesa ${bicycleLight.weigth} kg`);
 
 
@@ -92,4 +99,51 @@ teamCalcio.forEach((team) =>
 
 for (var key in punteggi) {
     console.log(punteggi[key]);
+}
+
+// Snack 3)
+// Scrivere una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
+// La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri.
+// Usiamo i nuovi metodi degli array foreach o filter
+console.warn("Esercizio 3");
+
+const arraySnack = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var numeroMin = parseInt(prompt("Inserisci un numero minimo"));
+var numeroMax = parseInt(prompt("Inserisci un numero massimo"));
+console.log(arraySnack);
+
+//Metodo forEach
+console.log("Metodo forEach");
+
+arraySnack.forEach( (element, index) => {
+    if ((element >= numeroMin) && (element < numeroMax)) {
+        console.log(`Il numero alla posizione ${element} è ${index}`);
+    }
+});
+
+//Metodo Filter
+console.log("Metodo Filter");
+
+const arrayBetween = arraySnack.filter((element) => {
+    return ((element >= numeroMin) && (element < numeroMax))
+});
+
+console.log(arrayBetween);
+
+
+//Metodo con la funzione
+console.log("Metodo con funzione");
+
+console.log(numBetween(arraySnack, numeroMin, numeroMax));
+
+function numBetween(arrayBetween, numero1, numero2) {
+    var arrayNew = [];
+    if ((numero1 < numero2) && (numero2 <= arrayBetween.length)) {
+        for (var i = numero1; i < numero2; i++)
+        arrayNew.push(arrayBetween[i]);
+    }
+    else {
+        alert("Torna a inserire i numeri!");
+    }
+    return arrayNew;
 }
